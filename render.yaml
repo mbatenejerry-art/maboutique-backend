@@ -1,0 +1,29 @@
+services:
+  - type: web
+    name: maboutique-backend
+    runtime: node
+    region: frankfurt
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 4000
+      - key: DB_DRIVER
+        value: postgres
+      - key: PGHOST
+        value: aws-0-eu-west-2.pooler.supabase.com
+      - key: PGPORT
+        value: 6543
+      - key: PGDATABASE
+        value: postgres
+      - key: PGUSER
+        value: postgres.wlzsalopdowqidfhcajd
+      - key: PGSSL
+        value: true
+      - key: PGPASSWORD
+        sync: false   # à saisir manuellement dans le dashboard Render
+      - key: JWT_SECRET
+        generateValue: true

@@ -1,0 +1,23 @@
+{
+  "name": "maboutique-pro-backend",
+  "version": "1.0.0",
+  "description": "API Node.js + Express pour MaBoutique Pro (gestion de stock et de ventes pour boutiques camerounaises). Architecture double base : PostgreSQL en production, SQLite (node:sqlite) en developpement local.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=22.5.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "migrate": "node src/db/migrate.js",
+    "seed": "node src/db/seed.js",
+    "setup:sqlite": "DB_DRIVER=sqlite npm run migrate && DB_DRIVER=sqlite npm run seed"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "pg": "^8.12.0"
+  }
+}
